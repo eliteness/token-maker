@@ -235,12 +235,7 @@ async function dexstats() {
 		return;
 	}
 
-	if( ! ethers.utils.isAddress(_ca) ) {
-		notice(`<h3>Welcome!</h3> Please Connect your wallet & Enter the details.`);
-		return;
-	}
-
-	if( ! TOKEN_MAKERS[ Number(window?.ethereum?.chainid ?? 0 ) ] ) {
+	if( ! TOKEN_MAKERS[ Number(window?.ethereum?.chainId ?? 0 ) ] ) {
 		notice(`Token Maker is not supported on this chain yet.. sorry! Please reach out to us on <a target="blank" href="https://discord.gg/QpyfMarNrV">Discord</a> to have this chain added!`);
 		return;
 	}
@@ -284,7 +279,7 @@ async function makeToken() {
 	_s = $("inp-symbol").value;
 	_t = $("inp-supply").value;
 
-	if(_n.length==0||_s.length==0||!isFinite(_s)) {
+	if(_n.length==0 || _s.length==0 || !isFinite(_t)) {
 		notice("Please correct the Name/Symbol/Supply of your token");
 		return;
 	}
@@ -298,8 +293,8 @@ async function makeToken() {
 			Supply: ${_t} <br> <br>
 			<h4><u><i>Confirm this transaction in your wallet!</i></u></h4>
 		`);
-		TM = new ethers.Contract( TOKEN_MAKERS[Number(window.ethereum.chainid)] , ["function makeToken(string memory _n, string memory _s, uint _its) external"], signer);
-		let _tr = await TM.makeToken( _n, _s, _t);
+		TM = new ethers.Contract( TOKEN_MAKERS[Number(window.ethereum.chainId)] , ["function makeToken(string memory _n, string memory _s, uint _its) external"], signer);
+		let _tr = await TM.makeToken( _n, _s, _t, value: BigInt(0.000001337e18));
 		console.log(_tr);
 		notice(`
 			<h3>Submitting Transaction!</h3>
