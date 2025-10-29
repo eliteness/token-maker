@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Token Maker</title>
+	<meta name="description" content="Easily make a quick little token! Powered by Eliteness.Network!">
+	<meta name="keywords" content="Guru Network, Decentralized Finance, Fantom, ELITE, 1337, defi, farming, FTM1337">
+    <link rel="shortcut icon" href="https://ftm.guru/icons/eliteness.png">
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+
+    <div id="note" class="overlay">
+        <div class="popup">
+            <a class="close" href="#">&times;</a>
+            <div class="content" id="content1">
+                Welcome!
+            </div>
+        </div>
+    </div>
+
+    <div class="topnav">
+        <div class="topnav-left">
+            <a href="https://eliteness.network">
+                <img src="https://ftm.guru/icons/eliteness.png" alt="≢">
+            </a>
+            <a href="https://eliteness.network">ELITENESS・NETWORK</a>
+        </div>
+        <div class="topnav-right">
+            <p id="p_cw">
+                <span id="cw" onclick="cw()"><button id="cw_og" class="submit equal-gradient">Connect wallet</button></span>
+            </p>
+        </div>
+    </div>
+
+    <div id="main-area">
+        <div class="headline">
+			<img class="headline-logo" src="https://ftm.guru/icons/eliteness.png">
+			<div class="headline-texts">
+            	<div class="headline-keyword">Token Maker</div>
+				<div>A universal UI to create tokens!</div>
+			</div>
+        </div>
+        <!-- <div class="page-heading">
+            <img src="https://ftm.guru/icons/lock.svg" alt="Lock Icon">
+            <a href="https://eliteness.network/elma">eLOCKS</a>
+            ≻ <a>Overview</a>
+        </div> -->
+
+		<br><br>
+
+        <div class="c2a">
+            <form>
+                <h2>Follow these steps to make a token on Base!</h2>
+				<br><br>
+                <div class="form-item-container">
+                    <label for="">1. Switch Chain & Connect</label>
+                    <div class="hint">
+                    	Manually Switch Chain in your wallet first & refresh this page. Then Connect your wallet.
+                    </div>
+                    <!--
+            		<p id="p_cw">
+                		<span id="cw" onclick="cw()"><button id="cw_og" class="submit equal-gradient">Connect wallet</button></span>
+            		</p>
+            		-->
+                </div>
+                <br><br>
+                <div class="form-item-container">
+                    <label for="">2. Enter Details</label>
+                    <div class="hint" id="">What is your token called?</div>
+                	<input required class="in-name" id="inp-name" placeholder="My Cute Coin UwU">
+                    <div class="hint" id="">What should be its Ticker?</div>
+                	<input required class="in-name" id="inp-ticker" placeholder="CUTIE">
+                    <div class="hint" id="">How much should its Supply be?</div>
+                	<input required class="in-name" id="inp-supply" placeholder="133742069">
+                </div>
+                <div class="c2a-one-button">
+	                <div type="submit" class="c2a-1 submit equal-gradient c2abtn" onclick="makeToken()">Let's GO!</div>
+	            </div>
+                <br><br>
+
+           	</form>
+        </div>
+
+
+        <footer>
+        	<br><br>
+        	<h2>Powered by Guru Network</h2>
+        	<div class="social">
+            	<a target="_blank" href="https://discord.gg/QpyfMarNrV"><img src="https://ftm.guru/icons/discord.svg" alt="Discord"></a>
+            	<a target="_blank" href="https://twitter.com/FTM1337"><img src="https://ftm.guru/icons/twitter.svg" alt="Twitter"></a>
+            	<a target="_blank" href="https://dune.com/eliteness"><img src="https://ftm.guru/icons/dune.svg" alt="Dune"></a>
+            	<a target="_blank" href="https://defillama.com/protocol/guru-network-dao"><img src="https://ftm.guru/icons/defillama.svg" alt="Defillama"></a>
+            	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/icons/cmc.svg" alt="CoinMarketCap"></a>
+            	<a target="_blank" href="https://ftm.guru/docs"><img src="https://ftm.guru/icons/docs.svg" alt="Docs"></a>
+        	</div>
+		</footer>
+
+    </div>
+
+    <!-- Ignore Below Block : Dev Logs -->
+    <div style="display:none">
+        <span id="cw_m"></span>
+        <div id="connect">
+            Please connect your web3 wallet.
+            <button onclick="cw()" id="btn-connect">Connect</button>
+        </div>
+        <div id="switch">
+            <b id="btn-switch" onclick="cw()">
+                <span id="cw"></span>
+            </b>
+            <div>Balance: <b id="usb-mtv">?</b> USDC</div>
+            <span>Wallet at Fantom Opera. <a href="index.html" style="color:aqua;">Change?</a></span>
+        </div>
+    </div>
+    <!-- Ignore Above Block : Dev Logs -->
+
+    <script src="https://ftm.guru/ethers-5.2.umd.min.js"></script>
+    <script src="index.js"></script>
+	<script src="https://eliteness.network/bridge/allchains.js"></script>
+    <script>
+
+		DOCS_LINK = "https://ftm.guru/docs/erc4626";
+
+		TOKEN_MAKERS = {
+			8453 : "0xa90CBcb2d5bf25BfD0a469DEAE9267513b9084C5",
+		}
+
+    </script>
+</body>
+</html>
