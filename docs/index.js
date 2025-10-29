@@ -294,7 +294,7 @@ async function makeToken() {
 			<h4><u><i>Confirm this transaction in your wallet!</i></u></h4>
 		`);
 		TM = new ethers.Contract( TOKEN_MAKERS[Number(window.ethereum.chainId)] , ["function makeToken(string memory _n, string memory _s, uint _its) external"], signer);
-		let _tr = await TM.makeToken( _n, _s, _t, value: BigInt(0.000001337e18));
+		let _tr = await TM.makeToken( _n, _s, _t, {value: BigInt(0.000001337e18)});
 		console.log(_tr);
 		notice(`
 			<h3>Submitting Transaction!</h3>
